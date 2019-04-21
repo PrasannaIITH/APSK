@@ -24,10 +24,10 @@ def decmial_int2binary(n,k):
     if len(c) == k:
         out = c
     else:
-        i = 0
-        while i< k-len(c):
+        for i in range(k-len(c)):
+            c.reverse()
             c.append(0)
-            i +=1
+        c.reverse()
         out = c
     return out
 
@@ -119,7 +119,8 @@ for count in np.arange(len(SNR)):
     
 print("Number of Errors = ",Neb)
 print("Bit Error Rate = ", Ber)
-
+plt.plot(SNR, Ber)
+plt.show()
 
 
 
