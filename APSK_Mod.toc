@@ -1,8 +1,4 @@
 \contentsline {section}{\numberline {1}QPSK}{1}
-\contentsline {subsection}{\numberline {1.1}Program}{1}
-\contentsline {subsection}{\numberline {1.2}BER Plot}{1}
 \contentsline {section}{\numberline {2}8PSK}{1}
-\contentsline {section}{\numberline {3}16PSK}{1}
-\contentsline {section}{\numberline {4}16APSK}{1}
-\contentsline {section}{\numberline {5}32APSK}{1}
-\contentsline {section}{References}{1}
+\contentsline {section}{\numberline {3}16APSK}{1}
+\contentsline {section}{\numberline {4}32APSK}{2}

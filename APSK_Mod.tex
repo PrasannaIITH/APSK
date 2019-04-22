@@ -183,9 +183,15 @@ This module explains about the comparative study of M-array Phase Shift keying a
 \label{QPSK Constellation Diagram}
 \caption{QPSK Constellation Diagram}
 \end{figure}
-\subsection{Program}
-\subsection{BER Plot}
-
+$$X =Re^{i\theta} = Rcos(\theta) + iRsin(\theta)$$ 
+Where R and $\theta$ depends upon the positon of the constalation symbol accounding polar coordinate System.
+$$N = A + iB $$
+Here, N is the complex AWGN noise and A, B are random variable.
+$$ Y = X + N =(Rcos\theta + A) + i (Rsin\theta + B) $$
+Y is the received signal from the channel.  
+\begin{lstlisting}
+wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/QPSK.py
+\end{lstlisting}
 \section{8PSK}
 \begin{figure}[h!]
 \centering
@@ -193,27 +199,32 @@ This module explains about the comparative study of M-array Phase Shift keying a
 \label{8PSK Constellation Diagram}
 \caption{8PSK Constellation Diagram}
 \end{figure}
+\begin{lstlisting}
+wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/8PSK.py
+\end{lstlisting}
 
-\section{16PSK}
 
 \section{16APSK}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{figs/16APSK.eps}
-\label{8PSK Constellation Diagram}
-\caption{8PSK Constellation Diagram}
+\label{16APSK Constellation Diagram}
+\caption{16APSK Constellation Diagram}
 \end{figure}
 
+\begin{lstlisting}
+wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/16APSK.py
+\end{lstlisting}
 \section{32APSK}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{figs/32APSK.eps}
-\label{8PSK Constellation Diagram}
-\caption{8PSK Constellation Diagram}
+\label{32APSK Constellation Diagram}
+\caption{32APSK Constellation Diagram}
 \end{figure}
-
-\begin{thebibliography}{00}
-\bibitem{b1} xxxxxxx, xxxxxxxxxxxxxx url{http://www.wiringpi.com/}. 
-\bibitem{b2} Sunfounder,xxxxxxxxxxxxxxxx \url{https://www.youtube.com/watch?time_continue=4&v=y3Pv7--6eik}.
-\end{thebibliography}
+%
+%\begin{thebibliography}{00}
+%\bibitem{b1} xxxxxxx, xxxxxxxxxxxxxx url{http://www.wiringpi.com/}. 
+%\bibitem{b2} Sunfounder,xxxxxxxxxxxxxxxx \url{https://www.youtube.com/watch?time_continue=4&v=y3Pv7--6eik}.
+%\end{thebibliography}
 \end{document}
