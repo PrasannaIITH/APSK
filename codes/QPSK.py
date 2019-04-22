@@ -24,8 +24,8 @@ def decmial_int2binary(n,k):
     if len(c) == k:
         out = c
     else:
+        c.reverse()
         for i in range(k-len(c)):
-            c.reverse()
             c.append(0)
         c.reverse()
         out = c
@@ -86,7 +86,7 @@ for count in np.arange(len(SNR)):
  
 
 # Demapping
-    Rx_signal = Tx_signal + N
+    Rx_signal = Tx_signal 
 
     i = 0
     x = []

@@ -24,11 +24,13 @@ def decmial_int2binary(n,k):
     if len(c) == k:
         out = c
     else:
+        c.reverse()
         i = 0
         while i< k-len(c):
             c.append(0)
             i +=1
-        out = c
+       c.reverse()
+       out = c
     return out
 
 # Inisialization
