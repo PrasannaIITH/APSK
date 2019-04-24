@@ -1,11 +1,18 @@
-# Importing Required Packages
+import matplotlib.pyplot as plt
 import numpy as np
 import scipy as sp
-import matplotlib.pyplot as plt
-import random
-import array
-import math as m
 import cmath
+import numpy.random as random
+import math 
+import array 
+
+
+# Initialization 
+n = input("Number of Transmission Bits n = ")
+M = input("Number of Constallation Symbols M = ")
+k = int(np.log2(M))
+R1 = np.sqrt(7)
+R2 = 3*R1
 
 # Binary Array to Decemial Conversion
 def binarey_array2decimal(n):
@@ -14,152 +21,75 @@ def binarey_array2decimal(n):
     out = int(str1,2)
     return out
 
-# Decimal to Binary Conversion
-def decmial_int2binary(n,k):
-    # n is the input
-    # k is number of bits
-    a = bin(n)[2:]
-    b = list(a)
-    c = [int(i) for i in b]
-    if len(c) == k:
-        out = c
-    else:
-        c.reverse()
-        for i in range(k-len(c)):
-            c.append(0)
-        c.reverse()
-        out = c
-    return out
-    
-    
-'''
-def decimalToBinary(decimalArray, size, noBits, binary2DArray):
-	for i in range(size):
-		temp = decimalArray[i]
-		#print(temp)
-		binary2DArray[i][noBits-1] = 0 if(temp >= 0) else 1
-		#print(binary2DArray[i][noBits-1])
 
-		for j in range(noBits-1):
-			#print("i: "+str(i)+" j: "+str(j))
-			binary2DArray[i][j] = temp%2
-			temp = temp/2
-			#print(binary2DArray[i][j])
+# Generation of Input Data
+dataIn = random.randint(0,2,n)
+# Constlation Bits
+con_bits = dataIn.reshape(int(n/k),k)
 
-def binaryToDecimal(binary2DArray, size, noBits, decimalArray):
-	for i in range(size):
-		
-		sign = -2*(binary2DArray[i][noBits-1]) + 1
-		#print(sign)
+# Carrier SIgnal (Constalation Symbols)
 
-		temp = 0
-		for j in range(noBits-1):
-			temp = temp + (binary2DArray[i][j])*math.pow(2,j)
+#QPSK
+#CS = np.array([np.exp(1j*np.pi/4),np.exp(1j*-1*np.pi/4),np.exp(1j*3*np.pi/4),np.exp(1j*-3*np.pi/4)])
 
-		#print(temp)
-'''
-
-# Inisialization
-M = int(input('Numberof symbol in a constallation M = '))
-k = int(np.log2(M))
-n = int(input("Number of Transmission bits  n = "))
-R1 = np.sqrt(7)
-R2 = 3*R1
-
-# Generation of Binary bits
-dataIn = []
-i = 0
-while i < n:
-    dataIn.append(random.randint(0,1))
-    i += 1
-
-# Constallation Symbols
-datain = np.array(dataIn)
-con_symbol = datain.reshape(int(n/k),k)
-
-# Carrier signal
-'''
-CS = np.array([R2*np.exp(1j*np.pi/4),R2*np.exp(1j*-1*np.pi/4),R2*np.exp(1j*3*np.pi/4),R2*np.exp(1j*5*np.pi/4),R2*np.exp(1j*np.pi/12),R2*np.exp(1j*-1*np.pi/12),R2*np.exp(1j*11*np.pi/12),R2*np.exp(1j*13*np.pi/12),R2*np.exp(1j*5*np.pi/12),R2*np.exp(1j*-5*np.pi/12),R2*np.exp(1j*7*np.pi/12),R2*np.exp(1j*-7*np.pi/12),R1*np.exp(1j*np.pi/4),R1*np.exp(1j*-1*np.pi/4),R1*np.exp(1j*3*np.pi/4),R1*np.exp(1j*5*np.pi/4)])
-'''
-
+#8PSK
 CS = np.array([R1*np.exp(1j*np.pi/4), R1*np.exp(1j*2*np.pi), R1*np.exp(1j*np.pi), R1*np.exp(1j*5*np.pi/4),R1*np.exp(1j*np.pi/2),R1*np.exp(1j*-1*np.pi/4), R1*np.exp(1j*3*np.pi/4),R1*np.exp(1j*3*np.pi/2) ])
 
-
-# Mapping
-Tx_symbol = []
-i = 0
-while i < len(con_symbol):
-    mp = binarey_array2decimal(con_symbol[i])
-    Tx_symbol.append(CS[mp])
-    i += 1
-
-Tx_signal = np.array(Tx_symbol)
-
-'''
-for i in range(len_eb_n0):
-	#========================================================
-    # Noise characteristics
-    N0 = 1/(np.exp(Eb_N0_dB[i]*np.log(10)/10.0))
-    noise=np.random.normal(0,np.sqrt(N0/2.0),len(Tx_signal)) 
-    #=========================================================
-'''
-# SNR: Signal to Noise Ratio 
-Eb = 1 # Energy per bit
-SNRdB = np.arange(11)[1:] 
-SNR = 10**(SNRdB/10)
-Ber = []
-Neb = []
-mu = 0
-
-# AWGN channel
-for count in np.arange(len(SNR)):
-    No = Eb/SNR[count]
-    sigma = np.sqrt(No/2.0)
-    rn = np.random.normal(mu,sigma,len(Tx_signal)) 
-    crn = np.array([complex(rn[i], rn[i]) for i in np.arange(len(rn))])
-    N = crn
  
-
-# Demapping
-    Rx_signal = Tx_signal + N
-
-    i = 0
-    x = []
-    Rcon_symbol = []
-    for i in range(len(Rx_signal)):
-        d = []
-        for j in range(len(CS)):
-            d.append(abs(Rx_signal[i]-CS[j]))
-            x.append(d.index(min(d)))
-            Rcon_symbol.append(decmial_int2binary(x[i],k))
-            
-
-    dataout = np.array(Rcon_symbol)
-    dataOut = dataout.reshape(n,1)
+#16APSK
+#CS = np.array([R2*np.exp(1j*np.pi/4),R2*np.exp(1j*-1*np.pi/4),R2*np.exp(1j*3*np.pi/4),R2*np.exp(1j*5*np.pi/4),R2*np.exp(1j*np.pi/12),R2*np.exp(1j*-1*np.pi/12),R2*np.exp(1j*11*np.pi/12),R2*np.exp(1j*13*np.pi/12),R2*np.exp(1j*5*np.pi/12),R2*np.exp(1j*-5*np.pi/12),R2*np.exp(1j*7*np.pi/12),R2*np.exp(1j*-7*np.pi/12),R1*np.exp(1j*np.pi/4),R1*np.exp(1j*-1*np.pi/4),R1*np.exp(1j*3*np.pi/4),R1*np.exp(1j*5*np.pi/4)])
 
 
-# Number of Errors 
-    Error = 0
-    for i in dataIn:
-        if dataIn[i] == dataOut[i]:
-            Error = Error
-        else:
-            Error = Error + 1   
-    Neb.append(Error)
+Tx_signal = 1j*np.zeros(len(con_bits))
+for i in range(len(con_bits)):
+    Tx_signal[i] = CS[binarey_array2decimal(con_bits[i])]
     
-# Bit Error Rate (BER) or Probabulity of Error
-    Ber.append(Neb[count]/len(dataIn))
+# AWGN channel
+ebnodb=np.arange(0,11,1)
+errors=np.zeros(len(ebnodb))
+e=np.size(ebnodb)
+m=0
+ber=np.zeros(e)
+
+for i in range(e):
+    sigma=np.sqrt(0.5*(10.0**(-ebnodb[i]/10.0)))
+    noise=np.random.normal(0,sigma,len(Tx_signal))+1j*np.random.normal(0,sigma,len(Tx_signal))
     
-print("Number of Errors = ",Neb)
-print("Bit Error Rate = ", Ber)
-plt.plot(SNR, Ber)
+    # Received signal with AWGN Noise  noise[i]
+    Rx_signal = np.add(Tx_signal, noise)
+    #Demapping
+    dmin_ind = np.zeros(len(Rx_signal),int)
+    for j in range(len(Rx_signal)):
+        dist= np.zeros(len(CS))
+        for l in range(len(dist)):
+            dist[l] = abs(Rx_signal[j] - CS[l])
+        dmin_ind[j] = dist.argmin()
+    
+    dm_bin_str = []
+    Rx_con_bits = []
+    j = 0
+    while j < len(dmin_ind):
+        dm_bin_str.append( np.binary_repr(dmin_ind[j],width =k))
+        Rx_con_bits.append(list(dm_bin_str[j]))
+        j +=1
+        
+    Rx_con_bits_ary = np.array(Rx_con_bits, int)
+    dataOut = np.reshape(Rx_con_bits_ary,n)
+    errors[i]=(dataOut!=dataIn).sum()
+        
+
+ber=np.true_divide(errors,len(dataIn))    
+#theoryBer=0.5*erfc(np.sqrt(0.5*(10**(0.1*ebnodb))))
+#plt.plot(ebnodb,theoryBer,'r',ebnodb,ber,'b')
+#plt.semilogy(ebnodb,theoryBer,'r',linewidth=1)
+plt.semilogy(ebnodb,ber,'-s')
+#plt.legend(['theory','Practical'],loc=1)
+plt.yscale('log')
+plt.ylabel('BitErrorRate')
+plt.xlabel('Eb/N0 in dB')
+plt.title('BER for 8PSK in AWGN without Channel Coding')
+#plt.xtricks([0,1,2,3,4,5,6,7,8,9,10,11])
+plt.grid()
 plt.show()
-
-
-
-
-
-
-
 
 
