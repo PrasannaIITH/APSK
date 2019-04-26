@@ -192,6 +192,13 @@ Y is the received signal from the channel.
 \begin{lstlisting}
 wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/QPSK.py
 \end{lstlisting}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.2]{figs/QPSK_ber.eps}
+\caption{\small{BER Curve for QPSK without Channel Coding}}
+\label{BER Curve for QPSK without Channel Coding}
+\end{figure}
+
 \section{8PSK}
 \begin{figure}[h!]
 \centering
@@ -202,9 +209,15 @@ wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/QPSK.py
 \begin{lstlisting}
 wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/8PSK.py
 \end{lstlisting}
-
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.32]{figs/8PSK.eps}
+\caption{\small{BER Curve for 8PSK without Channel Coding}}
+\label{BER Curve for 8PSK without Channel Coding}
+\end{figure}
 
 \section{16APSK}
+In 16APSK, we have two concentric circles, with radius $R1 = \sqrt{7}$ \& $ R2 = 3\sqrt{7}$ respectively, It is considered ratio between the radius of two circle to be 3. These values are taken form the reference \cite{b1}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{figs/16APSK.eps}
@@ -215,16 +228,30 @@ wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/8PSK.py
 \begin{lstlisting}
 wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/16APSK.py
 \end{lstlisting}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.32]{figs/16APSK_ber.eps}
+\caption{\small{BER Curve for 16APSK without Channel Coding}}
+\label{BER Curve for 16APSK without Channel Coding}
+\end{figure}
+
 \section{32APSK}
+In 32APSK, we have three concentric circles with radius R1,R2 \& R3, where $R1<R2<R3$.
+\begin{center}
+$R2/R1 = 3$, $R3/R2 = 3$
+\end{center} 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{figs/32APSK.eps}
 \label{32APSK Constellation Diagram}
 \caption{32APSK Constellation Diagram}
 \end{figure}
-%
-%\begin{thebibliography}{00}
-%\bibitem{b1} xxxxxxx, xxxxxxxxxxxxxx url{http://www.wiringpi.com/}. 
-%\bibitem{b2} Sunfounder,xxxxxxxxxxxxxxxx \url{https://www.youtube.com/watch?time_continue=4&v=y3Pv7--6eik}.
-%\end{thebibliography}
+\begin{lstlisting}
+wget https://raw.githubusercontent.com/PrasannaIITH/APSK/master/codes/APSK32_CS.py
+\end{lstlisting}
+
+\begin{thebibliography}{00}
+\bibitem{b1} Pervaiz Ali, Farhan Hussain and Jechang Jeong, 'A New Demapping Technique for 16-APSK Modulation for Digital Video Broadcasting in AWGN Channel', Third 2008 International Conference on Convergence and Hybrid Information Technology. 
+\end{thebibliography}
 \end{document}

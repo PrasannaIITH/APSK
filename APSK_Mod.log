@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2019.2.20)  22 APR 2019 10:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2019.2.20)  25 APR 2019 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -966,25 +966,32 @@ File: tlc.eps Graphic file (type eps)
 File: figs/qpsk_con.eps Graphic file (type eps)
 
 <figs/qpsk_con.eps>
+File: figs/QPSK_ber.eps Graphic file (type eps)
+ <figs/QPSK_ber.eps>
 File: figs/8PSK_CON.eps Graphic file (type eps)
  <figs/8PSK_CON.eps>
+File: figs/8PSK.eps Graphic file (type eps)
+ <figs/8PSK.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: figs/16APSK.eps Graphic file (type eps)
- <figs/16APSK.eps> [1
+<figs/16APSK.eps> [1
 
 
 ]
+File: figs/16APSK_ber.eps Graphic file (type eps)
+ <figs/16APSK_ber.eps>
 File: figs/32APSK.eps Graphic file (type eps)
-
-<figs/32APSK.eps> [2
-
-] (./APSK_Mod.aux) ) 
+ <figs/32APSK.eps> [2]
+(./APSK_Mod.aux) ) 
 Here is how much of TeX's memory you used:
- 22913 strings out of 493030
- 490990 string characters out of 6136260
- 661487 words of memory out of 5000000
- 26066 multiletter control sequences out of 15000+600000
+ 22925 strings out of 493030
+ 491240 string characters out of 6136260
+ 654487 words of memory out of 5000000
+ 26075 multiletter control sequences out of 15000+600000
  58621 words of font info for 136 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
  62i,7n,56p,479b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on APSK_Mod.dvi (2 pages, 10052 bytes).
+Output written on APSK_Mod.dvi (2 pages, 12692 bytes).
